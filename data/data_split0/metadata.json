@@ -1,0 +1,10 @@
+{
+    "version": 0,
+    "description": "NYC Taxi Trip Duration dataset - split into train, validation, and test sets",
+    "files": {
+        "train.csv": "File not found",
+        "val.csv": "File not found",
+        "test.csv": "File not found"
+    },
+    "created_at": "2025-08-30"
+}
