@@ -14,50 +14,85 @@ This project develops machine learning models to predict New York City taxi trip
 
 trip_duration_project/
 ├── data/
+
 │ ├── raw/ # Original, immutable data
+
 │ ├── processed/ # Processed data files
+
 │ │ ├── data_processed.zip
+
 │ │ └── metadata.json
+
 │ └── splitted/ # Train/test/validation splits
+
 ├── models/ # Trained models
+
 │ └── ridge_pipeline.pkl
+
 ├── notebooks/ # Jupyter notebooks
+
 │ ├── EDA_TripDuration.ipynb
+
 │ └── .ipynb_checkpoints/ # Notebook autosaves
+
 ├── reports/ # Analysis outputs and reports
+
 │ ├── results/ # Experiment results
+
 │ │ ├── cv_scores.csv
+
 │ │ ├── feature_ranking.csv
+
 │ │ ├── top_features.csv
+
 │ │ ├── validation_predictions.csv
+
 │ │ └── pipeline_selected_framework.csv
+
 │ ├── graphs/ # Visualizations and plots
+
 │ ├── asset/ # Additional assets
+
 │ └── shap_feature_importance/ # SHAP analysis results
+
 ├── src/ # Source code
+
 │ ├── pycache/
+
 │ ├── cross_validation.py
+
 │ ├── evaluate.py
+
 │ ├── feature_engineering.py
+
 │ ├── feature_selection.py
+
 │ ├── main.py
+
 │ ├── model_training.py
+
 │ ├── pipeline.py
+
 │ └── error_validation.csv
+
 ├── env/ # Environment configuration
+
 │ └── env.sample
+
 ├── .gitattributes # Git attributes
+
 ├── .gitignore # Git ignore rules
+
 ├── LICENSE # MIT License
+
 ├── requirements.txt # Python dependencies
+
 └── README.md # Project documentation
 
-yaml
-Copy code
 
 
 
----
+----
 
 ##  Installation
 
