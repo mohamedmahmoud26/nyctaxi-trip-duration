@@ -86,7 +86,6 @@ trip_duration_project/
 ├── LICENSE # MIT License
 
 ├── requirements.txt # Python dependencies
-
 └── README.md # Project documentation
 
 
@@ -109,7 +108,9 @@ source venv/bin/activate
 # Windows
 venv\Scripts\activate
 # Install dependencies
+
 pip install -r requirements.txt
+
 --- 
 
 # Run Complete Pipeline
