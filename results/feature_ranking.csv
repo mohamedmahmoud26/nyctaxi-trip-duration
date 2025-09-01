@@ -1,0 +1,16 @@
+Feature,Ranking
+distance_per_passenger,0
+dropoff_longitude,1
+dropoff_latitude,1
+distance_km,1
+delta_long,1
+speed_kmh,1
+long_trip,1
+night_trip,1
+vendor_id,1
+passenger_count,1
+trip_duration,1
+pickup_latitude,2
+pickup_longitude,3
+delta_lat,4
+is_weekend,5

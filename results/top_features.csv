@@ -1,0 +1,11 @@
+Top_Features
+dropoff_longitude
+dropoff_latitude
+distance_km
+delta_long
+speed_kmh
+long_trip
+night_trip
+vendor_id
+passenger_count
+trip_duration
