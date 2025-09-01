@@ -42,7 +42,7 @@ explainer = shap.Explainer(model)
 shap_values = explainer(X_val)
 
 # ------------------------
-# Global Feature Importance
+# Global Feature Importance Plots
 # ------------------------
 # Bar plot
 shap.summary_plot(shap_values, X_val, plot_type="bar")
@@ -58,17 +58,22 @@ shap_importance = pd.DataFrame({
     'shap_importance': np.abs(shap_values.values).mean(axis=0)
 }).sort_values(by='shap_importance', ascending=False)
 
-# Show top features
-print(shap_importance)
-
-# Save to CSV
-shap_importance.to_csv(
-    '/mnt/c/Users/Mohamed Mahmoud/Trip_Duration/nyc-taxi-trip-duration/data_processed/shap_feature_importance.csv',
-    index=False
-)
+# ------------------------
+# Save full feature ranking
+# ------------------------
+full_path = '/mnt/c/Users/Mohamed Mahmoud/Trip_Duration/nyc-taxi-trip-duration/data_processed/shap_feature_importance.csv'
+shap_importance.to_csv(full_path, index=False)
+print(f" Full feature ranking saved to: {full_path}")
 
 # ------------------------
-# Optional: Top 10 Features
+# Save Top 10 features separately
 # ------------------------
 top_10_features = shap_importance.head(10)
+top10_path = '/mnt/c/Users/Mohamed Mahmoud/Trip_Duration/nyc-taxi-trip-duration/data_processed/top10_shap_features.csv'
+top_10_features.to_csv(top10_path, index=False)
+print(f" Top 10 features saved to: {top10_path}")
+
+# ------------------------
+# Print Top 10 Features
+# ------------------------
 print("\nTop 10 Features:\n", top_10_features)
