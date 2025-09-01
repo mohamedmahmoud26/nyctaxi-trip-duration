@@ -1,0 +1,60 @@
+# Ignore Python cache & compiled files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# Ignore environment folders
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints
+
+# Ignore large project output folders
+data_processed/
+models/
+results/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore other IDE/project files
+*.log
+*.sqlite3
+*.sqlite3-journal
+*.manifest
+*.spec
+
+# Ignore packaging/build folders
+build/
+dist/
+*.egg-info/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+
+# Ignore temporary/cache files
+.cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+
+# Ignore PyInstaller, Celery, Poetry, PDM, Pixi, Pyre, etc.
+*.so
+celerybeat-schedule
+celerybeat.pid
+poetry.lock
+pdm.lock
+pixi.lock
+.pdm-build/
+.pdm-python
