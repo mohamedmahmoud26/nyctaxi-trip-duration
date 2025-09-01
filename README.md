@@ -11,52 +11,50 @@ This project develops machine learning models to predict New York City taxi trip
 
 ##  Project Structure
 
+
 trip_duration_project/
-│
-├── data/                            
-│   ├── raw/                         # Original, immutable data
-│   ├── processed/                   # Processed data files
-│   │   ├── data_processed.zip       # Compressed processed data
-│   │   └── metadata.json            # Metadata for processed data
-│   └── splitted/                    # Train/test/validation splits
-│
-├── models/                          # Trained models
-│   └── ridge_pipeline.pkl           # Ridge regression pipeline model
-│
-├── notebooks/                       # Jupyter notebooks
-│   ├── EDA_TripDuration.ipynb       # Exploratory Data Analysis
-│   └── .ipynb_checkpoints/          # Notebook autosaves
-│
-├── reports/                         # Analysis outputs and reports
-│   ├── results/                     # Experiment results
-│   │   ├── cv_scores.csv            # Cross-validation scores
-│   │   ├── feature_ranking.csv      # Feature importance rankings
-│   │   ├── top_features.csv         # Top predictive features
-│   │   ├── validation_predictions.csv # Validation set predictions
-│   │   └── pipeline_selected_fm...  # Selected pipeline framework
-│   ├── graphs/                      # Visualizations and plots
-│   ├── asset/                       # Additional assets
-│   └── shap_feature_importance/     # SHAP analysis results
-│
-├── src/                             # Source code
-│   ├── __pycache__/                 # Python cache files
-│   ├── cross_validation.py          # Cross-validation implementation
-│   ├── evaluate.py                  # Model evaluation scripts
-│   ├── feature_engineering.py       # Feature engineering utilities
-│   ├── feature_selection.py         # Feature selection methods
-│   ├── main.py                      # Main execution script
-│   ├── model_training.py            # Model training routines
-│   ├── pipeline.py                  # Data processing pipeline
-│   └── error_validation.csv         # Validation error analysis
-│
-├── env/                             # Environment configuration
-│   └── env.sample                   # Environment variables template
-│
-├── .gitattributes                   # Git attributes
-├── .gitignore                       # Git ignore rules
-├── LICENSE                          # MIT License
-├── requirements.txt                 # Python dependencies
-└── README.md                        # Project documentation
+├── data/
+│ ├── raw/ # Original, immutable data
+│ ├── processed/ # Processed data files
+│ │ ├── data_processed.zip
+│ │ └── metadata.json
+│ └── splitted/ # Train/test/validation splits
+├── models/ # Trained models
+│ └── ridge_pipeline.pkl
+├── notebooks/ # Jupyter notebooks
+│ ├── EDA_TripDuration.ipynb
+│ └── .ipynb_checkpoints/ # Notebook autosaves
+├── reports/ # Analysis outputs and reports
+│ ├── results/ # Experiment results
+│ │ ├── cv_scores.csv
+│ │ ├── feature_ranking.csv
+│ │ ├── top_features.csv
+│ │ ├── validation_predictions.csv
+│ │ └── pipeline_selected_framework.csv
+│ ├── graphs/ # Visualizations and plots
+│ ├── asset/ # Additional assets
+│ └── shap_feature_importance/ # SHAP analysis results
+├── src/ # Source code
+│ ├── pycache/
+│ ├── cross_validation.py
+│ ├── evaluate.py
+│ ├── feature_engineering.py
+│ ├── feature_selection.py
+│ ├── main.py
+│ ├── model_training.py
+│ ├── pipeline.py
+│ └── error_validation.csv
+├── env/ # Environment configuration
+│ └── env.sample
+├── .gitattributes # Git attributes
+├── .gitignore # Git ignore rules
+├── LICENSE # MIT License
+├── requirements.txt # Python dependencies
+└── README.md # Project documentation
+
+yaml
+Copy code
+
 
 
 ---
