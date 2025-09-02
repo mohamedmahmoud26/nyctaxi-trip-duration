@@ -1,0 +1,11 @@
+feature,shap_importance
+distance_km,0.43251264
+bearing,0.115406565
+hour_cos,0.08519634
+distance_log,0.07651797
+dropoff_latitude,0.05954514
+hour,0.05724646
+day_of_week,0.03412461
+pickup_longitude,0.029978048
+hour_sin,0.029451834
+dropoff_longitude,0.027804846
