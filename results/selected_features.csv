@@ -1,0 +1,17 @@
+Selected_Features
+distance_km
+distance_log
+distance_manhattan
+bearing
+pickup_latitude
+dropoff_latitude
+dropoff_longitude
+hour_sin
+hour_cos
+day_of_week_sin
+day_of_week_cos
+month_sin
+month_cos
+is_weekend
+week_of_year
+quarter
