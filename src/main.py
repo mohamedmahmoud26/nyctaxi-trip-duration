@@ -46,7 +46,8 @@ def evaluate_model(pipeline, X_test, y_test):
     y_pred = pipeline.predict(X_test)
     r2 = r2_score(y_test, y_pred)
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-    return {"R2": r2, "RMSE": rmse}
+    rmsle = np.sqrt(mean_squared_log_error(y_test, y_pred))
+    return {"R2": r2, "RMSE": rmse, "RMSLE": rmsle}, y_pred
 
 # ==============================
 # Load processed data
@@ -90,7 +91,7 @@ X_test = test[selected_features]
 pipe = build_pipeline(numeric_features=selected_features, model_type="ridge", alpha=1.0)
 
 # ==============================
-# Cross-validation (optional)
+# Cross-validation
 # ==============================
 mean_r2, r2_scores = run_cross_validation(pipe, X_train, y_train, cv=5)
 print(f"Cross-Validation Mean R2: {mean_r2:.4f}")
@@ -104,14 +105,10 @@ trained_pipe = train_model(pipe, X_train, y_train)
 # ==============================
 # Evaluate on Validation Set
 # ==============================
-results = evaluate_model(trained_pipe, X_val, y_val)
+results, y_val_pred = evaluate_model(trained_pipe, X_val, y_val)
 print(f"Validation R²: {results['R2']:.4f}")
 print(f"Validation RMSE: {results['RMSE']:.4f}")
-
-# RMSLE
-y_val_pred = trained_pipe.predict(X_val)
-rmsle = np.sqrt(mean_squared_log_error(y_val, y_val_pred))
-print(f"Validation RMSLE: {rmsle:.4f}")
+print(f"Validation RMSLE: {results['RMSLE']:.4f}")
 
 # ==============================
 # Predict on Test Set
@@ -120,28 +117,41 @@ test_preds = trained_pipe.predict(X_test)
 test["trip_duration_pred"] = test_preds
 
 # ==============================
-# Save model + predictions
+# Create folders
 # ==============================
 os.makedirs("../models", exist_ok=True)
+os.makedirs("../results", exist_ok=True)
 os.makedirs("../submissions", exist_ok=True)
 
+# ==============================
+# Save model
+# ==============================
 joblib.dump(trained_pipe, "../models/ridge_pipeline.pkl")
-test[["id", "trip_duration_pred"]].to_csv("../submissions/test_predictions.csv", index=False)
-
-print("Ridge model saved to ../models/ridge_pipeline.pkl")
-print(" Predictions saved to ../submissions/test_predictions.csv")
 
 # ==============================
-# Save all results in results folder
+# Save test predictions
 # ==============================
-results_dir = "../results"
-os.makedirs(results_dir, exist_ok=True)
+if "id" in test.columns:
+    test[["id", "trip_duration_pred"]].to_csv("../submissions/test_predictions.csv", index=False)
+else:
+    test[["trip_duration_pred"]].to_csv("../submissions/test_predictions.csv", index=False)
 
-# Save train & val (with trip_duration log-transformed)
-train.to_csv(f"{results_dir}/train_processed.csv", index=False)
-val.to_csv(f"{results_dir}/val_processed.csv", index=False)
+# ==============================
+# Save processed datasets in results
+# ==============================
+train.to_csv("../results/train_processed.csv", index=False)
+val.to_csv("../results/val_processed.csv", index=False)
+test.to_csv("../results/test_with_predictions.csv", index=False)
 
-# Save test with predictions
-test.to_csv(f"{results_dir}/test_with_predictions.csv", index=False)
+# ==============================
+# Save validation metrics
+# ==============================
+metrics_df = pd.DataFrame({
+    "Metric": ["R2", "RMSE", "RMSLE"],
+    "Value": [results["R2"], results["RMSE"], results["RMSLE"]]
+})
+metrics_df.to_csv("../results/validation_metrics.csv", index=False)
 
-print(f"All results saved in {results_dir}")
+print("All results saved in ../results/")
+print("Model saved in ../models/ridge_pipeline.pkl")
+print("Predictions saved in ../submissions/test_predictions.csv")
