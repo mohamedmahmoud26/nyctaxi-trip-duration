@@ -1,168 +1,83 @@
-# NYC Taxi Trip Duration Prediction
+# NYC Taxi Trip Duration Prediction | توقع مدة رحلات التاكسي في نيويورك
 
-![Python](https://img.shields.io/badge/python-3.10-blue)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-Active-brightgreen)
 
- **Overview**  
-This project develops machine learning models to predict New York City taxi trip durations using historical trip data. The implementation includes comprehensive data processing pipelines, feature engineering, and multiple machine learning approaches.
+**English:**
+This project predicts the duration of NYC taxi trips using machine learning. It includes data processing, feature engineering, model training, and evaluation, with all code and results organized for easy use and reproducibility.
+
+**بالعربي:**
+المشروع ده بيستخدم الذكاء الاصطناعي لتوقع مدة رحلات التاكسي في نيويورك بناءً على بيانات فعلية، مع معالجة وتحليل البيانات وتدريب النماذج وعرض النتائج بشكل منظم.
 
 ---
 
-##  Project Structure
+## Project Structure | هيكل المشروع
 
+```
+asset/                # رسوم ونتائج التحليل
+  └── graphs/         # صور ورسوم بيانية
+data/                 # البيانات الخام
+  └── data_split0/    # تقسيمات البيانات (train, val, test)
+data_processed/       # بيانات معالجة
+models/               # النماذج المدربة
+Notebook/             # دفاتر Jupyter للتحليل
+results/              # نتائج النمذجة والتقييم
+src/                  # كود المشروع (معالجة، تدريب، تقييم...)
+submissions/          # ملفات التقديم النهائية
+requirement.txt       # المتطلبات البرمجية
+LICENSE               # الرخصة
+README.md             # ملف الشرح
+```
 
-trip_duration_project/
-├── data/
-
-│ ├── raw/ # Original, immutable data
-
-│ ├── processed/ # Processed data files
-
-│ │ ├── data_processed.zip
-
-│ │ └── metadata.json
-
-│ └── splitted/ # Train/test/validation splits
-
-├── models/ # Trained models
-
-│ └── ridge_pipeline.pkl
-
-├── notebooks/ # Jupyter notebooks
-
-│ ├── EDA_TripDuration.ipynb
-
-│ └── .ipynb_checkpoints/ # Notebook autosaves
-
-├── reports/ # Analysis outputs and reports
-
-│ ├── results/ # Experiment results
-
-│ │ ├── cv_scores.csv
-
-│ │ ├── feature_ranking.csv
-
-│ │ ├── top_features.csv
-
-│ │ ├── validation_predictions.csv
-
-│ │ └── pipeline_selected_framework.csv
-
-│ ├── graphs/ # Visualizations and plots
-
-│ ├── asset/ # Additional assets
-
-│ └── shap_feature_importance/ # SHAP analysis results
-
-├── src/ # Source code
-
-│ ├── pycache/
-
-│ ├── cross_validation.py
-
-│ ├── evaluate.py
-
-│ ├── feature_engineering.py
-
-│ ├── feature_selection.py
-
-│ ├── main.py
-
-│ ├── model_training.py
-
-│ ├── pipeline.py
-
-│ └── error_validation.csv
-
-├── env/ # Environment configuration
-
-│ └── env.sample
-
-├── .gitattributes # Git attributes
-
-├── .gitignore # Git ignore rules
-
-├── LICENSE # MIT License
-
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
-
-
-
-
-----
-
-##  Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/mohamedmahmod26/nyctaxi-trip-duration.git
-cd nyctaxi-trip-duration
-``` 
-
-## Set up virtual environment
-python -m venv venv
-# Linux/MacOS
-source venv/bin/activate
-# Windows
-venv\Scripts\activate
-# Install dependencies
-
-pip install -r requirements.txt
-
---- 
-
-# Run Complete Pipeline
-python src/main.py
-# Exploratory Data Analysis
-jupyter notebook notebooks/EDA_TripDuration.ipynb
-# Train Model
-python src/model_training.py
-# Cross-Validation
-python src/cross_validation.py
-# Evaluate Model
-python src/evaluate.py
 ---
-## Results
 
-### Key Findings
+## Quick Start | خطوات التشغيل السريعة
 
-- Top predictive features: reports/results/top_features.csv
+1. **تفعيل البيئة الافتراضية (conda):**
+	```bash
+	conda activate env1
+	```
+2. **تثبيت المتطلبات:**
+	```bash
+	pip install -r requirement.txt
+	```
+3. **تشغيل التدريب أو التقييم:**
+	```bash
+	python src/main.py
+	```
+4. **استكشاف البيانات:**
+	- افتح `Notebook/EDA_TripDuration.ipynb` باستخدام Jupyter Notebook.
 
-- Feature importance rankings: reports/results/feature_ranking.csv
+---
 
-- Cross-validation performance: reports/results/cv_scores.csv
+## النتائج (Results)
 
-- Validation predictions: reports/results/validation_predictions.csv
+- أهم الميزات المؤثرة: `results/top10_shap_features.csv`
+- ترتيب أهمية الميزات: `results/shap_feature_importance.csv`
+- نتائج التحقق المتقاطع: `results/cv_scores.csv`
+- توقعات التحقق: `results/validation_predictions.csv`
+- أفضل نموذج: Ridge Regression (`models/ridge_pipeline.pkl`)
 
-# Model Performance
+---
 
-- The Ridge regression pipeline (models/ridge_pipeline.pkl) achieved the best performance with optimized hyperparameters.
+## المساهمة (Contributing)
 
-## Contributing
+1. Fork المشروع
+2. أنشئ فرع جديد للتعديل
+	```bash
+	git checkout -b feature/اسم_الميزة
+	```
+3. نفذ تعديلاتك ثم commit
+	```bash
+	git commit -m "شرح التعديل"
+	```
+4. ادفع الفرع (push) وافتح Pull Request
 
-1- Fork the project
+---
 
-2- Create your feature branch
+## الشكر (Acknowledgments)
 
-git checkout -b feature/AmazingFeature
-
-
-3- Commit your changes
-
-git commit -m 'Add some AmazingFeature'
-
-
-4- Push to the branch
-
-git push origin feature/AmazingFeature
-
-
-5- Open a Pull Request
-
-## Acknowledgments
-
-- NYC Taxi and Limousine Commission for providing the data
-
-- Open-source community for the libraries and tools used in this project
+- NYC Taxi and Limousine Commission على البيانات
+- مجتمع المصادر المفتوحة على الأدوات والمكتباتAPI branch test
+API branch test
