@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/Pandas-1.5%2B-blue?logo=pandas" alt="Pandas Version">
   <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
 </p>
+<img src="https://img.shields.io/badge/YOLO-Active-yellow" alt="YOLO Badge">
 
 A comprehensive machine learning solution for predicting taxi trip durations in New York City using spatial, temporal, and trip metadata features. This enterprise-grade project demonstrates a complete data science pipeline from exploratory analysis to production-ready model deployment.
 
@@ -23,11 +24,11 @@ The final Ridge Regression model achieves a validation R² score of 0.6411, demo
 
 | Category | Technologies |
 | :--- | :--- |
-| **Core Programming** | <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"> |
-| **Data Processing** | <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy"> |
-| **Machine Learning** | <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white" alt="Scikit-Learn"> <img src="https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white" alt="SciPy"> |
-| **Data Visualization** | <img src="https://img.shields.io/badge/Matplotlib-11557C?logo=matplotlib&logoColor=white" alt="Matplotlib"> <img src="https://img.shields.io/badge/Seaborn-4B77B0?logo=seaborn&logoColor=white" alt="Seaborn"> |
-| **Notebook Environment** | <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"> |
+| *Core Programming* | <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python"> |
+| *Data Processing* | <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy"> |
+| *Machine Learning* | <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white" alt="Scikit-Learn"> <img src="https://img.shields.io/badge/SciPy-8CAAE6?logo=scipy&logoColor=white" alt="SciPy"> |
+| *Data Visualization* | <img src="https://img.shields.io/badge/Matplotlib-11557C?logo=matplotlib&logoColor=white" alt="Matplotlib"> <img src="https://img.shields.io/badge/Seaborn-4B77B0?logo=seaborn&logoColor=white" alt="Seaborn"> |
+| *Notebook Environment* | <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"> |
 
 </div>
 
@@ -45,65 +46,65 @@ The dataset contains historical NYC taxi trip records with the following key fea
 ### Data Distribution and Outliers
 
 ![Trip Duration Distribution](asset/graphs/Original%20Trip%20Duration%20Distribution.png)
-*Original distribution of trip durations showing right-skewed pattern with extreme outliers*
+Original distribution of trip durations showing right-skewed pattern with extreme outliers
 
 ![Log-Transformed Distribution](asset/graphs/Log-Transformed%20Trip%20Duration%20Distribution.png)
-*Log-transformed distribution demonstrating improved normality for modeling*
+Log-transformed distribution demonstrating improved normality for modeling
 
 ### Temporal Patterns
 
 ![Hourly Effect](asset/graphs/Hour%20of%20Day%20Effect%20on%20Trip%20Duration.png)
-*Trip duration variation by hour of day showing peak hours with longer durations*
+Trip duration variation by hour of day showing peak hours with longer durations
 
 ![Weekly Pattern](asset/graphs/Day%20of%20Week%20Effect%20on%20Trip%20Duration.png)
-*Weekly patterns in trip duration with noticeable weekday/weekend variations*
+Weekly patterns in trip duration with noticeable weekday/weekend variations
 
 ### Spatial Analysis
 
 ![Dropoff Heatmap](asset/graphs/Dropoff%20Location%20Density%20Heatmap.png)
-*Density heatmap of dropoff locations highlighting popular destinations across NYC*
+Density heatmap of dropoff locations highlighting popular destinations across NYC
 
 ![Spatial Features](asset/graphs/Feature%20vs%20Feature%20pickup_longitude%20vs%20dropoff_longitude.png)
-*Relationship between pickup and dropoff longitude values*
+Relationship between pickup and dropoff longitude values
 
 ### Feature Relationships
 
 ![Correlation Heatmap](asset/graphs/Correlation%20Heatmap.png)
-*Correlation matrix showing relationships between numerical features*
+Correlation matrix showing relationships between numerical features
 
 ![Distance vs Duration](asset/graphs/Distance%20vs%20Trip%20Duration.png)
-*Relationship between trip distance and duration with clear positive correlation*
+Relationship between trip distance and duration with clear positive correlation
 
 ![Pairplot](asset/graphs/Pairplot%20of%20Numerical%20Features%20.png)
-*Pairwise relationships between numerical features*
+Pairwise relationships between numerical features
 
 ### Data Quality Assessment
 
 ![Missing Values](asset/graphs/isna.png)
-*Missing value analysis showing data completeness across features*
+Missing value analysis showing data completeness across features
 
 ![Numerical Distributions](asset/graphs/plot_numerical_distributions.png)
-*Distribution analysis of numerical features*
+Distribution analysis of numerical features
 
 ## Feature Engineering
 
 The project implements sophisticated feature engineering techniques:
 
-- **Spatial features**: Haversine distance, Manhattan distance, bearing direction
-- **Temporal features**: Hour of day, day of week, month, is_weekend flag
-- **Spatial clustering**: Identification of high-density pickup/dropoff zones
-- **Statistical features**: Rolling averages, trip frequency by area/time
-- **Interaction terms**: Cross-features between spatial and temporal dimensions
+- *Spatial features*: Haversine distance, Manhattan distance, bearing direction
+- *Temporal features*: Hour of day, day of week, month, is_weekend flag
+- *Spatial clustering*: Identification of high-density pickup/dropoff zones
+- *Statistical features*: Rolling averages, trip frequency by area/time
+- *Interaction terms*: Cross-features between spatial and temporal dimensions
 
 ## Model Training & Pipeline
 
 The modeling approach utilizes a Ridge Regression pipeline with careful feature selection and hyperparameter optimization:
 
-- **Preprocessing**: Standard scaling, outlier handling, missing value imputation
-- **Feature selection**: Correlation analysis, recursive feature elimination
-- **Model tuning**: Grid search with cross-validation for optimal regularization
-- **Validation**: Stratified temporal cross-validation to prevent data leakage
-- **Interpretation**: SHAP analysis for model explainability
+- *Preprocessing*: Standard scaling, outlier handling, missing value imputation
+- *Feature selection*: Correlation analysis, recursive feature elimination
+- *Model tuning*: Grid search with cross-validation for optimal regularization
+- *Validation*: Stratified temporal cross-validation to prevent data leakage
+- *Interpretation*: SHAP analysis for model explainability
 
 ## Results & Performance
 
@@ -116,7 +117,7 @@ The final model demonstrates strong predictive performance:
 | Validation RMSE | 0.4924 |
 | Validation RMSLE | 0.0732 |
 
-**Cross-Validation Performance by Fold**:
+*Cross-Validation Performance by Fold*:
 - Fold 1: R² = 0.6185
 - Fold 2: R² = 0.6207
 - Fold 3: R² = 0.5905
@@ -130,7 +131,7 @@ The model shows consistent performance across validation folds with no significa
 <details>
 <summary>Click to expand project directory structure</summary>
 
-```
+
 nyc-taxi-trip-duration/
 ├── .env.example                 # Environment variables template
 ├── .gitattributes              # Git configuration
@@ -189,7 +190,7 @@ nyc-taxi-trip-duration/
 │   └── pipeline.py             # ML pipeline definition
 └── submissions/                # Prediction outputs
     └── test_predictions.csv
-```
+
 </details>
 
 ## Installation & Usage
@@ -202,32 +203,32 @@ nyc-taxi-trip-duration/
 
 ### Quick Start
 
-1. **Clone the repository**
-   ```bash
+1. *Clone the repository*
+   bash
    git clone https://github.com/your-username/nyc-taxi-trip-duration.git
    cd nyc-taxi-trip-duration
-   ```
+   
 
-2. **Set up virtual environment**
-   ```bash
+2. *Set up virtual environment*
+   bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+   
 
-3. **Install dependencies**
-   ```bash
+3. *Install dependencies*
+   bash
    pip install -r requirements.txt
-   ```
+   
 
-4. **Run the complete pipeline**
-   ```bash
+4. *Run the complete pipeline*
+   bash
    python src/main.py
-   ```
+   
 
 ### Advanced Usage
 
-**Execute individual components**:
-```bash
+*Execute individual components*:
+bash
 # Feature engineering
 python src/feature_engineering.py
 
@@ -239,33 +240,33 @@ python src/cross_validation.py
 
 # Model evaluation
 python src/evaluate.py
-```
 
-**Explore the Jupyter notebook**:
-```bash
+
+*Explore the Jupyter notebook*:
+bash
 jupyter notebook Notebook/EDA_TripDuration.ipynb
-```
+
 
 ## Future Work
 
 Potential enhancements for the project:
 
-1. **Model Improvements**
+1. *Model Improvements*
    - Experiment with gradient boosting models (XGBoost, LightGBM)
    - Implement ensemble approaches
    - Add deep learning architectures for spatial-temporal patterns
 
-2. **Feature Engineering**
+2. *Feature Engineering*
    - Incorporate weather data
    - Add real-time traffic information
    - Include points of interest data
 
-3. **Deployment**
+3. *Deployment*
    - Create API endpoints for predictions
    - Develop real-time prediction capabilities
    - Implement model monitoring and retraining pipelines
 
-4. **Visualization**
+4. *Visualization*
    - Interactive dashboard for exploration
    - Real-time prediction visualization
    - Model performance monitoring tools
@@ -282,4 +283,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-For questions or contributions, please open an issue or submit a pull request.
+For questions or contributions, please open an issue or submit a pull request.
